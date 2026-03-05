@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nimbus Prime | Architecture of Elegance</title>
+
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description"
+        content="Nimbus Prime - A hardware-adaptive, zero-dependency, pure performance Minecraft Launcher. Experience the pulse of elegant architecture.">
+    <meta name="keywords"
+        content="Minecraft, Launcher, Nimbus Prime, Hardware Adaptive, Zero Dependency, JVM Optimization">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Boxicons for elegant icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Three.js for 3D Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- GSAP for smooth micro-animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body data-theme="void">
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- UI Overlay container -->
+    <main class="glass-layer">
+
+        <!-- Navigation -->
+        <nav class="navbar glass-panel glow-border">
+            <div class="nav-brand">
+                <img src="downloads/logo.webp" alt="Nimbus Prime Logo" class="logo-image">
+                <span class="brand-text">NIMBUS PRIME</span>
+            </div>
+
+            <div class="nav-actions">
+                <!-- Theme Switcher -->
+                <div class="theme-switcher">
+                    <button class="theme-btn active" data-color="void" title="Void (Default)"></button>
+                    <button class="theme-btn" data-color="emerald" title="Emerald Green"></button>
+                    <button class="theme-btn" data-color="ruby" title="Ruby Red"></button>
+                    <button class="theme-btn" data-color="amethyst" title="Amethyst Purple"></button>
+                </div>
+
+                <a href="https://github.com/nishantXnova/Nimbus-Prime" target="_blank" class="github-btn glass-btn">
+                    <i class='bx bxl-github'></i> Star on GitHub
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-content">
+                <div class="hero-badge glow-text">Vercel Deployment & Distribution Guide</div>
+                <h1 class="hero-title">The Architecture of <span class="accent-text">Elegance</span>.</h1>
+                <p class="hero-subtitle">Hardware-Adaptive. Zero-Dependency. Pure Performance.</p>
+
+                <div class="cta-group">
+                    <a href="downloads/NimbusPrime.zip" class="btn primary-btn pulse-glow"
+                        download="NimbusPrime_Distribution.zip">
+                        <i class='bx bxs-download'></i> Download Nimbus
+                    </a>
+                    <a href="#stats" class="btn secondary-btn glass-btn">
+                        View Analytics
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Pulse Section -->
+        <section class="pulse-section" id="features">
+            <div class="section-header">
+                <h2>Inside <span class="accent-text">The Pulse</span></h2>
+                <p>Adaptive systems that heal and tune themselves in real-time.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card glass-panel hover-lift">
+                    <div class="feature-icon"><i class='bx bx-chip'></i></div>
+                    <h3>Hardware Auditor</h3>
+                    <p>Re-writes JVM flags on the fly. Dynamically profiles your CPU cores and RAM to inject optimized
+                        G1GC parameters perfectly tuned for your machine.</p>
+                </div>
+                <div class="feature-card glass-panel hover-lift">
+                    <div class="feature-icon"><i class='bx bx-shield-quarter'></i></div>
+                    <h3>Asset Guardian</h3>
+                    <p>A self-healing parallel downloader. Validates SHA-1 checksums concurrently to ensure absolute 0%
+                        missing textures or sounds upon launch.</p>
+                </div>
+                <div class="feature-card glass-panel hover-lift">
+                    <div class="feature-icon"><i class='bx bx-terminal'></i></div>
+                    <h3>Zero-Dependency</h3>
+                    <p>Powered by a single lightweight binary and script. No forced installers, no bloated runtimes.
+                        Drop it in and launch.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Dashboard & Live Spec -->
+        <section class="dashboard-section" id="stats">
+            <div class="dashboard-container">
+                <!-- Comparison Table -->
+                <div class="performance-card glass-panel glow-border">
+                    <div class="card-header">
+                        <h3><i class='bx bx-tachometer'></i> Performance Benchmark</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="benchmark-table">
+                            <thead>
+                                <tr>
+                                    <th>Launcher</th>
+                                    <th>Startup Time</th>
+                                    <th>RAM Footprint</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="nimbus-row">
+                                    <td><span class="accent-text">Nimbus Prime</span></td>
+                                    <td><span class="mono-text">
+                                            < 100ms</span>
+                                    </td>
+                                    <td><span class="mono-text">~45 MB</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Prism Launcher</td>
+                                    <td><span class="mono-text">~800ms</span></td>
+                                    <td><span class="mono-text">~120 MB</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Official Launcher</td>
+                                    <td><span class="mono-text">> 4000ms</span></td>
+                                    <td><span class="mono-text">> 350 MB</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="benchmark-note">
+                        <i class='bx bx-info-circle'></i> Tested on i3 Laptop: Legacy UI (9s) vs Nimbus (<3s) </div>
+                    </div>
+
+                    <!-- Live Spec Simulator -->
+                    <div class="simulator-card glass-panel hover-glow">
+                        <div class="card-header">
+                            <h3><i class='bx bx-slider-alt'></i> Live Spec Simulator</h3>
+                            <p class="sim-subtitle">Watch the Auditor adapt.</p>
+                        </div>
+
+                        <div class="simulator-controls">
+                            <div class="control-group">
+                                <label for="ram-slider">System RAM: <span id="ram-val">8</span> GB</label>
+                                <input type="range" id="ram-slider" min="4" max="64" step="4" value="8">
+                            </div>
+                            <div class="control-group">
+                                <label for="cpu-slider">CPU Cores: <span id="cpu-val">4</span></label>
+                                <input type="range" id="cpu-slider" min="2" max="32" step="2" value="4">
+                            </div>
+                        </div>
+
+                        <div class="simulator-output console-font">
+                            <div class="output-line">> Initializing Hardware Auditor...</div>
+                            <div class="output-line">> Profile: <span id="sim-profile"
+                                    class="accent-text">Mid-Tier</span></div>
+                            <div class="output-line">> Injected JVM Flags:</div>
+                            <div id="sim-flags" class="flags-block">
+                                -Xms2048M -Xmx4096M -XX:+UseG1GC -XX:ParallelGCThreads=4
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Giant Brand Text (like LangChain) -->
+        <section class="giant-brand-section">
+            <h1 class="giant-text">NIMBUS</h1>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2026 Nimbus Prime. Built with the Architecture of Elegance.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
