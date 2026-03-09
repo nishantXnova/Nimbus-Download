@@ -531,6 +531,138 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
 .tl-content p{color:var(--muted);font-size:.85rem;}
 .tl-content .tl-badge{font-family:var(--mono);font-size:.7rem;color:var(--accent);letter-spacing:1px;}
 
+/* ---- TIPS SECTION ---- */
+.tips-section {}
+.tips-header { text-align:center; margin-bottom:4rem; }
+.tips-header .tips-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--mono); font-size:.7rem; color:var(--accent);
+  letter-spacing:2px; text-transform:uppercase;
+  padding:4px 14px; border-radius:50px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03); margin-bottom:1.2rem;
+}
+.tips-header h2 {
+  font-family:var(--head); font-size:clamp(.9rem,1.8vw,1.3rem);
+  font-weight:400; line-height:2; letter-spacing:.06em; margin-bottom:.6rem;
+}
+.tips-header p { color:var(--muted); font-size:.97rem; max-width:560px; margin:0 auto; }
+
+/* tab bar */
+.tips-tabs {
+  display:flex; gap:.5rem; justify-content:center;
+  margin-bottom:2.5rem; flex-wrap:wrap;
+}
+.tips-tab {
+  display:flex; align-items:center; gap:7px;
+  padding:.55rem 1.2rem; border-radius:50px;
+  border:1px solid var(--glass-border); background:var(--glass);
+  color:var(--muted); font-size:.82rem; font-weight:600;
+  cursor:pointer; transition:all var(--trans); font-family:var(--body);
+}
+.tips-tab .tt-icon { font-size:1rem; }
+.tips-tab:hover { border-color:rgba(255,255,255,.15); color:var(--text); }
+.tips-tab.active {
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border-color:transparent; color:#fff;
+  box-shadow:0 4px 18px var(--glow);
+}
+
+/* tip panels */
+.tips-panel { display:none; }
+.tips-panel.active { display:block; }
+
+/* big tip card at top */
+.tip-hero-card {
+  border-radius:var(--rl); border:1px solid rgba(74,158,255,.18);
+  background:linear-gradient(135deg,rgba(74,158,255,.06),rgba(124,92,252,.04));
+  padding:2.5rem; margin-bottom:2rem; display:grid;
+  grid-template-columns:1fr 1fr; gap:3rem; align-items:center;
+}
+.thc-label {
+  font-family:var(--mono); font-size:.65rem; color:var(--accent);
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:1rem;
+}
+.thc-title {
+  font-family:var(--head); font-size:clamp(.75rem,1.4vw,1rem);
+  line-height:2; letter-spacing:.06em; margin-bottom:1rem;
+}
+.thc-body { color:var(--muted); font-size:.93rem; line-height:1.75; }
+.thc-visual {
+  font-family:var(--mono); font-size:.75rem; line-height:1.9;
+  background:rgba(0,0,0,.55); border:1px solid var(--glass-border);
+  border-radius:var(--r); padding:1.4rem; position:relative; overflow:hidden;
+}
+.thc-visual::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);
+}
+.tv-comment { color:#333355; font-style:italic; }
+.tv-key  { color:var(--accent); }
+.tv-val  { color:#4ade80; }
+.tv-bad  { color:#f43f5e; }
+.tv-good { color:#4ade80; }
+
+/* tip grid */
+.tip-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem;
+}
+.tip-card {
+  padding:1.6rem 1.4rem; border-radius:var(--r);
+  border:1px solid var(--glass-border); background:var(--glass);
+  transition:border-color var(--trans), transform var(--trans), box-shadow var(--trans);
+  position:relative; overflow:hidden;
+}
+.tip-card::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 20% 20%, var(--glow), transparent 60%);
+  opacity:0; transition:opacity var(--trans);
+}
+.tip-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,.4),0 0 20px var(--glow); }
+.tip-card:hover::before { opacity:1; }
+.tip-card-top {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:1rem;
+}
+.tip-icon {
+  width:40px; height:40px; border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem; box-shadow:0 4px 12px var(--glow); flex-shrink:0;
+}
+.tip-badge {
+  font-family:var(--mono); font-size:.6rem; padding:3px 8px;
+  border-radius:50px; letter-spacing:1px; text-transform:uppercase;
+}
+.tip-badge.easy   { background:rgba(74,222,128,.1);  color:#4ade80; border:1px solid rgba(74,222,128,.2); }
+.tip-badge.medium { background:rgba(251,191,36,.1);  color:#fbbf24; border:1px solid rgba(251,191,36,.2); }
+.tip-badge.impact { background:rgba(74,158,255,.1);  color:var(--accent); border:1px solid rgba(74,158,255,.2); }
+.tip-card h4 {
+  font-family:var(--head); font-size:.62rem; line-height:1.9;
+  letter-spacing:.05em; margin-bottom:.6rem;
+}
+.tip-card p { color:var(--muted); font-size:.85rem; line-height:1.65; }
+.tip-card .tip-cmd {
+  margin-top:.9rem; font-family:var(--mono); font-size:.72rem;
+  background:rgba(0,0,0,.45); border:1px solid var(--glass-border);
+  border-radius:8px; padding:.5rem .8rem; color:var(--accent);
+  word-break:break-all;
+}
+
+/* performance meter bar inside a card */
+.tip-meter { margin-top:1rem; }
+.tip-meter-label { display:flex; justify-content:space-between; font-size:.75rem; color:var(--muted); margin-bottom:.4rem; }
+.tip-meter-track { height:4px; background:rgba(255,255,255,.06); border-radius:50px; overflow:hidden; }
+.tip-meter-fill { height:100%; border-radius:50px; background:linear-gradient(90deg,var(--accent),var(--accent2)); transition:width 1.4s cubic-bezier(.16,1,.3,1); width:0; }
+
+@media(max-width:900px){
+  .tip-hero-card { grid-template-columns:1fr; gap:1.5rem; }
+  .tip-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px){
+  .tip-grid { grid-template-columns:1fr; }
+}
+
 /* ---- DOWNLOAD ---- */
 .dl-section{text-align:center;}
 .dl-card{max-width:720px;margin:0 auto;padding:4rem;border-radius:var(--rl);border:1px solid rgba(74,158,255,.2);background:linear-gradient(135deg,rgba(74,158,255,0.06),rgba(124,92,252,0.04));position:relative;overflow:hidden;}
@@ -615,6 +747,7 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
     <a href="#features">Features</a>
     <a href="#benchmark">Benchmark</a>
     <a href="#showcase">Gallery</a>
+    <a href="#tips">Tips</a>
     <a href="#download">Download</a>
   </div>
   <div class="nav-right">
@@ -635,12 +768,12 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow"><span class="dot"></span> v1.0 — Pure Java 21 · Zero Dependencies</div>
+    <div class="hero-eyebrow"><span class="dot"></span> v1.0 — The launcher built on a bad laptop</div>
     <h1 class="hero-title">
-      Built for Machines<br>
-      <span class="line2">That Fight Back.</span>
+      Slow isn’t an option.<br>
+      <span class="line2">Nimbus proves it.</span>
     </h1>
-    <p class="hero-sub">Nimbus Prime is a hardware-adaptive Minecraft launcher that profiles your CPU and RAM on every boot — then injects the exact JVM flags your system needs. No bloat. No compromises.</p>
+    <p class="hero-sub">Built on an i3 with 4GB RAM that everyone said was too slow. It still launches in under 3 seconds. Zero config. Zero excuses.</p>
     <div class="hero-cta">
       <a href="#download" class="btn btn-primary">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -654,7 +787,7 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
       <div class="stat"><span class="stat-num">3000+</span><span class="stat-label">Assets Verified</span></div>
       <div class="stat"><span class="stat-num">0</span><span class="stat-label">Dependencies</span></div>
     </div>
-    <div class="hero-scroll">Scroll <div class="scroll-line"></div></div>
+    <div class="hero-scroll">Keep going <div class="scroll-line"></div></div>
   </div>
 </section>
 
@@ -692,8 +825,8 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
       <div class="story-content active" id="sc-1">
         <div class="story-left">
           <div class="story-chapter-num">01 / Origin</div>
-          <div class="story-headline">It started with lag.<br>On a 4GB laptop.</div>
-          <p class="story-body">Every other launcher was built for beefy rigs. Nimbus Prime was built for the machine that couldn't keep up — an Intel i3 5th Gen with 4GB RAM. The launcher that refused to accept "it's just slow."</p>
+          <div class="story-headline">The game stuttered.<br>The dev got angry.</div>
+          <p class="story-body">They said upgrade your PC. We said no. Nimbus Prime was built on an i3 with 4GB RAM — the machine every other launcher gave up on. It runs. It runs fast. And it doesn't apologise.</p>
           <div class="story-detail">
             <div class="story-detail-item"><span class="sd-val">9s</span><span class="sd-label">Official launcher</span></div>
             <div class="story-detail-item"><span class="sd-val">&lt;3s</span><span class="sd-label">Nimbus Prime</span></div>
@@ -718,8 +851,8 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
       <div class="story-content" id="sc-2">
         <div class="story-left">
           <div class="story-chapter-num">02 / Intelligence</div>
-          <div class="story-headline">It reads your hardware.<br>Then rewrites itself.</div>
-          <p class="story-body">On every single launch, the Hardware Auditor scans your CPU cores and available RAM, then generates a completely fresh set of JVM flags. SerialGC for low-end, Aikar G1GC for high-end. No config files. No guessing.</p>
+          <div class="story-headline">It studies your machine.<br>Then arms it.</div>
+          <p class="story-body">Most launchers guess. Nimbus doesn't. Every single boot it reads your actual hardware, throws away the old flags, and writes new ones from scratch. Your machine is always running at its exact peak — not someone else's idea of it.</p>
           <div class="story-detail">
             <div class="story-detail-item"><span class="sd-val">G1GC</span><span class="sd-label">For 8+ cores</span></div>
             <div class="story-detail-item"><span class="sd-val">SerialGC</span><span class="sd-label">For 2–4 cores</span></div>
@@ -746,8 +879,8 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
       <div class="story-content" id="sc-3">
         <div class="story-left">
           <div class="story-chapter-num">03 / Integrity</div>
-          <div class="story-headline">3,000+ files.<br>Zero corruption allowed.</div>
-          <p class="story-body">The Asset Guardian runs a parallel SHA-1 sweep across every game asset before Minecraft is allowed to start. Textures, sounds, libraries — verified concurrently. Missing files are silently re-downloaded. You never see a missing texture.</p>
+          <div class="story-headline">Nothing launches<br>until it's perfect.</div>
+          <p class="story-body">Minecraft has 3,247 assets. Every single one gets verified before the game is allowed to open. Not because it's easy — because a purple square where grass should be is not acceptable.</p>
           <div class="story-detail">
             <div class="story-detail-item"><span class="sd-val">3,247</span><span class="sd-label">Files checked</span></div>
             <div class="story-detail-item"><span class="sd-val">SHA-1</span><span class="sd-label">Per file</span></div>
@@ -773,8 +906,8 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
       <div class="story-content" id="sc-4">
         <div class="story-left">
           <div class="story-chapter-num">04 / Simplicity</div>
-          <div class="story-headline">One file.<br>Zero installs. Just run.</div>
-          <p class="story-body">No Electron. No Chromium. No update daemon. Nimbus Prime is a single JAR — pure Java 21, zero external dependencies, atomic writes for crash safety. It's not magic. It's just engineering done right.</p>
+          <div class="story-headline">No bloat. No wizard.<br>No asking permission.</div>
+          <p class="story-body">Prism Launcher needs a runtime. The official launcher needs a Microsoft account. Nimbus needs a double-click. That's not minimalism. That's respect for your time.</p>
           <div class="story-detail">
             <div class="story-detail-item"><span class="sd-val">1</span><span class="sd-label">File to run</span></div>
             <div class="story-detail-item"><span class="sd-val">~45 MB</span><span class="sd-label">Total RAM use</span></div>
@@ -819,13 +952,13 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
 <!-- MINECRAFT SHOWCASE -->
 <section class="mc-section reveal" id="showcase">
   <div class="sec-label">// Gallery</div>
-  <h2>Built for the worlds<br>you already love.</h2>
+  <h2>Every world deserves<br>a launcher that shows up.</h2>
   <div class="mc-grid">
     <div class="mc-card mc-card-big">
       <img class="mc-img" src="https://images.unsplash.com/photo-1607513746994-51f730a44832?w=900&q=80" alt="Minecraft landscape" onerror="this.src='https://picsum.photos/900/340?grayscale'">
       <div class="mc-overlay">
         <div class="mc-tag">// Performance</div>
-        <div class="mc-title">Run at your machine's true peak.</div>
+        <div class="mc-title">Your machine finally runs free.</div>
         <div class="mc-desc">Dynamic JVM flag injection on every single boot.</div>
       </div>
     </div>
@@ -833,7 +966,7 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
       <img class="mc-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Minecraft build" onerror="this.src='https://picsum.photos/600/500?grayscale'">
       <div class="mc-overlay">
         <div class="mc-tag">// Integrity</div>
-        <div class="mc-title">3,000+ assets. All verified.</div>
+        <div class="mc-title">Not one texture missing.</div>
         <div class="mc-desc">Parallel SHA-1 validation before every launch.</div>
       </div>
     </div>
@@ -841,14 +974,14 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
       <img class="mc-img" src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=500&q=80" alt="Gaming setup" onerror="this.src='https://picsum.photos/500/200?grayscale'">
       <div class="mc-overlay">
         <div class="mc-tag">// Zero Bloat</div>
-        <div class="mc-title">~45MB RAM</div>
+        <div class="mc-title">Gone before you notice.</div>
       </div>
     </div>
     <div class="mc-card mc-card-sm2">
       <img class="mc-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&q=80" alt="Tech aesthetic" onerror="this.src='https://picsum.photos/500/200?grayscale'">
       <div class="mc-overlay">
         <div class="mc-tag">// Java 21</div>
-        <div class="mc-title">No runtimes needed.</div>
+        <div class="mc-title">Just a JAR and a dream.</div>
       </div>
     </div>
   </div>
@@ -857,16 +990,16 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
 <!-- FEATURES -->
 <section class="features-section" id="features">
   <div class="feat-header reveal">
-    <h2>The Pulse.<br>Inside the machine.</h2>
-    <p>Three systems working in concert to deliver perfect launches, every time.</p>
+    <h2>Three systems.<br>One obsession.</h2>
+    <p>Every part of Nimbus exists for one reason: you should never think about your launcher again.</p>
   </div>
   <div class="feat-grid">
     <div class="feat-card featured reveal">
       <div class="feat-content">
         <div>
           <div class="feat-icon">⚡</div>
-          <h3>Hardware Auditor</h3>
-          <p>On every launch, Nimbus reads your CPU core count and available RAM, then re-writes JVM flags from scratch. A 4-core machine gets SerialGC. An 8-core powerhouse gets fully tuned G1GC with Aikar parameters.</p>
+          <h3>The Auditor never rests.</h3>
+          <p>Every boot. Not sometimes. Every single boot — Nimbus reads your CPU, reads your RAM, and rewrites the JVM flags from zero. A 4-core machine gets SerialGC. An 8-core machine gets Aikar G1GC. No config file. No opinion. Just facts.</p>
           <span class="feat-badge">CORE SYSTEM</span>
         </div>
         <div class="feat-terminal">
@@ -884,26 +1017,26 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
     </div>
     <div class="feat-card reveal">
       <div class="feat-icon">🛡️</div>
-      <h3>Asset Guardian</h3>
-      <p>A self-healing parallel downloader that validates SHA-1 checksums across 3,000+ game files concurrently. Absolute 0% missing textures or sounds upon launch — guaranteed.</p>
+      <h3>Nothing gets past the Guardian.</h3>
+      <p>3,247 files. All SHA-1 verified in parallel before Minecraft is allowed to open. If one byte is wrong, it's silently fixed. You will never, ever see a missing texture. That's not a feature. That's a standard.</p>
       <span class="feat-badge">INTEGRITY ENGINE</span>
     </div>
     <div class="feat-card reveal">
       <div class="feat-icon">📦</div>
-      <h3>Zero-Dependency Binary</h3>
-      <p>The entire launcher ships as a single lightweight JAR. No forced installers, no bloated runtimes, no update daemons running in the background. Drop it in and launch.</p>
+      <h3>One file. End of story.</h3>
+      <p>The entire launcher is one JAR file. No installer. No uninstaller. No "please restart your computer." Drop it anywhere, double-click, play. That's it. We're done here.</p>
       <span class="feat-badge">PURE JAVA 21</span>
     </div>
     <div class="feat-card reveal">
       <div class="feat-icon">🪟</div>
-      <h3>Glassmorphism UI</h3>
-      <p>A custom Swing UI with glass-effect panels, real-time progress rings, and smooth state transitions — all rendered natively without Electron or a browser engine.</p>
+      <h3>Looks like it costs money.</h3>
+      <p>Built with pure Swing — no Electron, no Chrome running in the background eating your RAM just to render a button. It looks expensive. It costs nothing.</p>
       <span class="feat-badge">NATIVE SWING</span>
     </div>
     <div class="feat-card reveal">
       <div class="feat-icon">⚛️</div>
-      <h3>Atomic File Writes</h3>
-      <p>All disk operations use atomic write-and-rename strategies. A crash mid-download never corrupts your game files. Clean state is always guaranteed on next boot.</p>
+      <h3>Crash-proof. Always.</h3>
+      <p>Mid-download crash? Power cut? Nimbus doesn't care. Every write is atomic — either it succeeds completely or it never happened. Your game files are always clean. Always.</p>
       <span class="feat-badge">CRASH-SAFE</span>
     </div>
   </div>
@@ -912,8 +1045,8 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
 <!-- BENCHMARK -->
 <section class="bench-section" id="benchmark">
   <div class="bench-header reveal">
-    <h2>Numbers that speak.</h2>
-    <p>Measured on an Intel i3 5th Gen laptop with 4GB RAM — the machine that inspired Nimbus.</p>
+    <h2>The receipts.</h2>
+    <p>Measured on the exact machine they said was too slow — an Intel i3 5th Gen, 4GB RAM, integrated GPU.</p>
   </div>
   <div class="bench-layout">
     <div class="bench-card reveal">
@@ -976,15 +1109,15 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
 <!-- HOW IT WORKS TIMELINE -->
 <section class="timeline-section" id="how">
   <div class="timeline-header reveal">
-    <h2>How Nimbus works.</h2>
-    <p>Every launch is a 4-step ritual.</p>
+    <h2>Four steps.<br>Under three seconds.</h2>
+    <p>Everything Nimbus does before Minecraft is allowed to open.</p>
   </div>
   <div class="timeline">
     <div class="tl-item reveal">
       <div class="tl-content">
         <div class="tl-badge">STEP 01</div>
-        <h4>Hardware Audit</h4>
-        <p>Reads CPU cores and available RAM. Selects the optimal GC strategy — SerialGC for low-end, fully tuned G1GC for high-end.</p>
+        <h4>Read the machine.</h4>
+        <p>Nimbus wakes up and immediately asks: what am I working with today? CPU cores counted. RAM measured. The right GC strategy selected. All before you've finished blinking.</p>
       </div>
       <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
       <div class="tl-empty"></div>
@@ -994,15 +1127,15 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
       <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
       <div class="tl-content">
         <div class="tl-badge">STEP 02</div>
-        <h4>Asset Verification</h4>
-        <p>Parallel SHA-1 validation of 3,000+ game assets. Missing or corrupted files are re-downloaded before launch proceeds.</p>
+        <h4>Trust nothing. Check everything.</h4>
+        <p>3,247 files checked in parallel. One wrong byte and the whole file is silently replaced. Minecraft doesn't open until every single asset is exactly right.</p>
       </div>
     </div>
     <div class="tl-item reveal">
       <div class="tl-content">
         <div class="tl-badge">STEP 03</div>
-        <h4>Classpath Construction</h4>
-        <p>Dynamically assembles the Java classpath from verified libraries. Atomic file writes ensure no partial states survive a crash.</p>
+        <h4>Build the launch path.</h4>
+        <p>The classpath is assembled fresh from verified libraries. Every write is atomic. If it crashes here, it leaves nothing behind. Next boot starts clean.</p>
       </div>
       <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
       <div class="tl-empty"></div>
@@ -1012,8 +1145,247 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
       <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
       <div class="tl-content">
         <div class="tl-badge">STEP 04</div>
-        <h4>Minecraft Launch</h4>
-        <p>Spawns the game process with injected JVM flags. The UI transitions to a live log console. Average total time: under 3 seconds.</p>
+        <h4>Now you play.</h4>
+        <p>The flags are loaded. The path is built. Minecraft is summoned. The whole ritual takes under 3 seconds. They said your laptop was too slow. They were wrong.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS & TUTORIAL -->
+<section class="tips-section reveal" id="tips">
+  <div class="tips-header">
+    <div class="tips-eyebrow">⚙ Low-End Survival Guide</div>
+    <h2>They said your PC<br>can't run it. Prove them wrong.</h2>
+    <p>Every one of these was tested on the same i3 laptop Nimbus was built on. If it works there, it works anywhere.</p>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tips-tabs">
+    <div class="tips-tab active" data-tab="launch"><span class="tt-icon">🚀</span> Launch Settings</div>
+    <div class="tips-tab" data-tab="video"><span class="tt-icon">🖥</span> Video Options</div>
+    <div class="tips-tab" data-tab="mods"><span class="tt-icon">⚡</span> Performance Mods</div>
+    <div class="tips-tab" data-tab="os"><span class="tt-icon">🔧</span> OS Tweaks</div>
+  </div>
+
+  <!-- PANEL: Launch Settings -->
+  <div class="tips-panel active" id="tab-launch">
+    <div class="tip-hero-card">
+      <div>
+        <div class="thc-label">// Most Impactful</div>
+        <div class="thc-title">The flags are already set.<br>Here's why they work.</div>
+        <p class="thc-body">The Hardware Auditor already injects optimal flags on every boot. But knowing what they mean helps you understand why your game feels smoother. The two most important: <code style="color:var(--accent)">-Xmx</code> controls max heap RAM, and the GC strategy controls pause spikes.</p>
+      </div>
+      <div class="thc-visual">
+        <div class="tv-comment">// Nimbus injects this for a 4GB / 4-core machine</div>
+        <div style="color:#4a4a6a">-Xms<span class="tv-val">512M</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="tv-comment">// start heap small</span></div>
+        <div style="color:#4a4a6a">-Xmx<span class="tv-val">2048M</span> &nbsp;&nbsp;&nbsp;<span class="tv-comment">// max 2GB for game</span></div>
+        <div style="color:#4a4a6a"><span class="tv-key">-XX:+UseSerialGC</span> <span class="tv-comment">// less overhead</span></div>
+        <div style="color:#4a4a6a">-XX:MaxGCPauseMillis=<span class="tv-val">50</span></div>
+        <div style="color:#4a4a6a">-XX:-OmitStackTraceInFastThrow</div>
+        <div style="margin-top:.6rem;color:#4ade80">// Auto-generated. You don't touch this.</div>
+      </div>
+    </div>
+    <div class="tip-grid" id="launch-grid">
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🧠</div><span class="tip-badge impact">Max Impact</span></div>
+        <h4>Never exceed 75% of your RAM</h4>
+        <p>Giving Minecraft more RAM than your system has free causes swapping to disk — which is 100× slower than RAM. On 4GB: keep <code style="color:var(--accent)">-Xmx</code> at 2GB max.</p>
+        <div class="tip-cmd">-Xmx2048M &nbsp;← safe for 4GB total</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>Impact</span><span>95%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="95"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">♻️</div><span class="tip-badge easy">Easy</span></div>
+        <h4>SerialGC beats G1GC on weak CPUs</h4>
+        <p>G1GC is great for 8+ cores but adds overhead on 2-core machines. SerialGC is simpler, uses less CPU time, and causes fewer random lag spikes on low-end hardware.</p>
+        <div class="tip-cmd">-XX:+UseSerialGC</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>Impact</span><span>80%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="80"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🔕</div><span class="tip-badge easy">Easy</span></div>
+        <h4>Kill background apps before launching</h4>
+        <p>Chrome, Discord, Spotify each eat 200–400MB of RAM. On 4GB that's your entire Minecraft budget. Close them before launch — not after the lag starts.</p>
+        <div class="tip-meter"><div class="tip-meter-label"><span>Impact</span><span>70%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="70"></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: Video Options -->
+  <div class="tips-panel" id="tab-video">
+    <div class="tip-hero-card">
+      <div>
+        <div class="thc-label">// Biggest FPS Gains</div>
+        <div class="thc-title">One slider. Double your FPS.</div>
+        <p class="thc-body">Every extra chunk you render is exponentially more work for your CPU and GPU. On an integrated GPU, dropping from 12 to 6 chunks can double your FPS. Start there before touching anything else.</p>
+      </div>
+      <div class="thc-visual">
+        <div class="tv-comment">// FPS impact by setting (approx)</div>
+        <div><span class="tv-bad">Render Distance 12</span>  →  <span class="tv-bad">18 FPS</span></div>
+        <div><span class="tv-val">Render Distance 6 &nbsp;</span>  →  <span class="tv-val">42 FPS</span></div>
+        <div><span class="tv-val">Render Distance 4 &nbsp;</span>  →  <span class="tv-val">60+ FPS</span></div>
+        <div style="margin-top:.6rem" class="tv-comment">// Tested on i3-5005U, Intel HD 5500</div>
+      </div>
+    </div>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">📦</div><span class="tip-badge impact">Max Impact</span></div>
+        <h4>Render Distance: 4–6 chunks</h4>
+        <p>The single most impactful video setting. Set it to 4–6 for survival, 2–4 for building. You lose view distance, not gameplay.</p>
+        <div class="tip-meter"><div class="tip-meter-label"><span>FPS Gain</span><span>+140%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="95"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🌅</div><span class="tip-badge medium">Medium</span></div>
+        <h4>Graphics: Fast, not Fancy</h4>
+        <p>Fancy mode renders transparent leaves and smooth lighting. Fast mode removes both. Barely noticeable visually, meaningful FPS difference on integrated GPUs.</p>
+        <div class="tip-meter"><div class="tip-meter-label"><span>FPS Gain</span><span>+25%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="45"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🌫️</div><span class="tip-badge easy">Easy</span></div>
+        <h4>Disable Clouds & Particles</h4>
+        <p>Set clouds to OFF and particles to Minimal. These cost real CPU cycles every frame for purely cosmetic effects. Turn them off without a second thought.</p>
+        <div class="tip-meter"><div class="tip-meter-label"><span>FPS Gain</span><span>+10%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="28"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🔲</div><span class="tip-badge easy">Easy</span></div>
+        <h4>GUI Scale: Auto or Small</h4>
+        <p>Large GUI scales render more UI pixels every frame. Set to Auto or Small to reduce UI rendering overhead — especially noticeable on low-res integrated GPUs.</p>
+        <div class="tip-meter"><div class="tip-meter-label"><span>FPS Gain</span><span>+8%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="18"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🔄</div><span class="tip-badge medium">Medium</span></div>
+        <h4>Smooth Lighting: Off or Minimum</h4>
+        <p>Smooth lighting recalculates ambient occlusion in real time. On slow CPUs this is a constant drain. Turn it to Minimum or Off for a solid framerate boost.</p>
+        <div class="tip-meter"><div class="tip-meter-label"><span>FPS Gain</span><span>+18%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="36"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🎯</div><span class="tip-badge impact">Pro tip</span></div>
+        <h4>Cap FPS to 30 for stability</h4>
+        <p>Uncapped FPS makes your CPU run at 100% constantly, causing thermal throttling within minutes. Cap at 30 FPS — it's stable, and your laptop won't sound like a jet engine.</p>
+        <div class="tip-meter"><div class="tip-meter-label"><span>Stability</span><span>+200%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="90"></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: Performance Mods -->
+  <div class="tips-panel" id="tab-mods">
+    <div class="tip-hero-card">
+      <div>
+        <div class="thc-label">// Essential Stack</div>
+        <div class="thc-title">Three mods that changed<br>everything for low-end players.</div>
+        <p class="thc-body">The low-end mod stack isn't complicated. Sodium replaces the renderer. Lithium optimises game logic. Phosphor fixes lighting. Together they turn a 20 FPS slideshow into a playable 45–60 FPS experience — no shaders, no bloat.</p>
+      </div>
+      <div class="thc-visual">
+        <div class="tv-comment">// Essential mod stack (Fabric)</div>
+        <div><span class="tv-key">Sodium</span> &nbsp;&nbsp;&nbsp;&nbsp;→ <span class="tv-val">+120% FPS</span> <span class="tv-comment">// renderer</span></div>
+        <div><span class="tv-key">Lithium</span> &nbsp;&nbsp;&nbsp;→ <span class="tv-val">+30% TPS</span> &nbsp;<span class="tv-comment">// game logic</span></div>
+        <div><span class="tv-key">Phosphor</span> &nbsp;&nbsp;→ <span class="tv-val">-60% lag</span> &nbsp;<span class="tv-comment">// lighting</span></div>
+        <div style="margin-top:.6rem"><span class="tv-key">FerriteCore</span> → <span class="tv-val">-40% RAM</span> &nbsp;<span class="tv-comment">// memory</span></div>
+        <div style="color:#4ade80;margin-top:.6rem">// All free. All open source.</div>
+      </div>
+    </div>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🟠</div><span class="tip-badge impact">Essential</span></div>
+        <h4>Sodium</h4>
+        <p>Replaces Minecraft's ancient OpenGL renderer with a modern, optimised one. The single biggest FPS mod that exists. Install this first, everything else is secondary.</p>
+        <div class="tip-cmd">modrinth.com/mod/sodium</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>FPS Boost</span><span>+120%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="95"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🔵</div><span class="tip-badge impact">Essential</span></div>
+        <h4>Lithium</h4>
+        <p>Optimises game logic — AI, physics, chunk loading, entity processing. Works server-side too. No visual changes, just a cleaner, faster game engine underneath.</p>
+        <div class="tip-cmd">modrinth.com/mod/lithium</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>Logic Speed</span><span>+30%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="60"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🟡</div><span class="tip-badge medium">Recommended</span></div>
+        <h4>Phosphor / Starlight</h4>
+        <p>Rewrites Minecraft's broken lighting engine. Eliminates the lag spike that happens every time you place a torch or enter a new area. Use Starlight for newer versions.</p>
+        <div class="tip-cmd">modrinth.com/mod/starlight</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>Lag Spikes</span><span>-60%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="75"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🟢</div><span class="tip-badge medium">Recommended</span></div>
+        <h4>FerriteCore</h4>
+        <p>Reduces RAM usage by 30–40% by deduplicating identical block state data. On 4GB systems this is the difference between crashing and surviving a 2-hour session.</p>
+        <div class="tip-cmd">modrinth.com/mod/ferrite-core</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>RAM Saved</span><span>-40%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="72"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🟣</div><span class="tip-badge easy">Optional</span></div>
+        <h4>EntityCulling</h4>
+        <p>Stops rendering entities you can't see through walls. Huge win in villages, mob farms, and multiplayer. Very low install cost, noticeable gain in crowded areas.</p>
+        <div class="tip-cmd">modrinth.com/mod/entityculling</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>FPS in crowds</span><span>+35%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="55"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">⚪</div><span class="tip-badge easy">Optional</span></div>
+        <h4>ImmediatelyFast</h4>
+        <p>Optimises immediate-mode rendering (UI, item rendering, text). Subtle but consistent FPS improvement across all situations, especially in inventory-heavy moments.</p>
+        <div class="tip-cmd">modrinth.com/mod/immediatelyfast</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>UI Speed</span><span>+15%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="32"></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: OS Tweaks -->
+  <div class="tips-panel" id="tab-os">
+    <div class="tip-hero-card">
+      <div>
+        <div class="thc-label">// System Level</div>
+        <div class="thc-title">Windows is working against you.<br>Here's how to fight back.</div>
+        <p class="thc-body">Windows background services, power throttling, and driver overhead can eat 10–25% of your performance before Minecraft even loads. These tweaks cost nothing and take under 5 minutes.</p>
+      </div>
+      <div class="thc-visual">
+        <div class="tv-comment">// Windows power plan command (run as admin)</div>
+        <div style="color:var(--muted)">C:\&gt; powercfg /setactive</div>
+        <div><span class="tv-val">8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c</span></div>
+        <div style="margin-top:.6rem" class="tv-comment">// That GUID = High Performance mode</div>
+        <div style="color:#4ade80;margin-top:.4rem">// Instant 10–20% more CPU headroom</div>
+      </div>
+    </div>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">⚡</div><span class="tip-badge impact">Max Impact</span></div>
+        <h4>Switch to High Performance power plan</h4>
+        <p>Balanced mode throttles your CPU to save battery. High Performance mode lets it run at full clock speed. On a 1.8GHz i3 this means the difference between 1.8GHz and 2.4GHz turbo.</p>
+        <div class="tip-cmd">Control Panel → Power Options → High Performance</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>CPU Headroom</span><span>+20%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="80"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🧊</div><span class="tip-badge medium">Medium</span></div>
+        <h4>Keep your laptop cool</h4>
+        <p>Thermal throttling is the silent FPS killer. When your CPU hits 90°C+ it cuts its speed in half automatically. Use a laptop stand, clean the vents, or buy a $5 cooling pad.</p>
+        <div class="tip-meter"><div class="tip-meter-label"><span>Throttle Prevention</span><span>+30%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="65"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🛑</div><span class="tip-badge easy">Easy</span></div>
+        <h4>Disable Windows startup apps</h4>
+        <p>Teams, OneDrive, Spotify, Discord — they all auto-start and sit in RAM doing nothing. Open Task Manager → Startup, and disable everything you don't need running in the background.</p>
+        <div class="tip-cmd">Ctrl+Shift+Esc → Startup tab → Disable all</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>Free RAM</span><span>+400MB</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="55"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🔍</div><span class="tip-badge easy">Easy</span></div>
+        <h4>Disable Windows Search indexing</h4>
+        <p>Windows Search constantly scans your disk in the background. On slow HDDs this causes random lag spikes mid-game. Disable it during gaming sessions.</p>
+        <div class="tip-cmd">services.msc → Windows Search → Disabled</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>Disk Usage</span><span>-40%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="42"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🎮</div><span class="tip-badge medium">Medium</span></div>
+        <h4>Set Java process priority to High</h4>
+        <p>Windows gives all processes equal CPU time by default. Setting Java to High priority means the OS will prioritise Minecraft over background tasks when CPU time is scarce.</p>
+        <div class="tip-cmd">Task Manager → java.exe → Set Priority → High</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>CPU Priority</span><span>+15%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="48"></div></div></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-top"><div class="tip-icon">🖥️</div><span class="tip-badge easy">Easy</span></div>
+        <h4>Update your GPU driver</h4>
+        <p>Intel HD Graphics drivers from 2016 have known OpenGL bugs that cause Minecraft to run poorly. Update through Device Manager or Intel's Driver Support Assistant — free, 5 minutes.</p>
+        <div class="tip-cmd">device manager → Display adapters → Update driver</div>
+        <div class="tip-meter"><div class="tip-meter-label"><span>Stability</span><span>+25%</span></div><div class="tip-meter-track"><div class="tip-meter-fill" data-w="50"></div></div></div>
       </div>
     </div>
   </div>
@@ -1024,8 +1396,8 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
   <div class="dl-card reveal">
     <div class="dl-card-inner">
       <div class="dl-icon">⬇</div>
-      <h2>Ready to fly.</h2>
-      <p>Drop the JAR. Run it. That's it. No install wizards, no Microsoft accounts, no drama.</p>
+      <h2>Stop waiting.<br>Just launch.</h2>
+      <p>One file. One double-click. Under three seconds. You've been patient long enough.</p>
       <div class="dl-btns">
         <a href="downloads/NimbusPrime.zip" download class="btn btn-primary">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -1056,7 +1428,7 @@ footer{padding:3rem 6%;border-top:1px solid var(--glass-border);display:flex;ali
     <a href="#benchmark">Benchmark</a>
     <a href="#download">Download</a>
   </div>
-  <div class="footer-copy">&copy; 2026 Nimbus Prime — Built by Nishant</div>
+  <div class="footer-copy">&copy; 2026 Nimbus Prime — Built angry, on an i3, by Nishant</div>
 </footer>
 
 </div><!-- end .wrap -->
@@ -1313,6 +1685,43 @@ if(bc)barObs.observe(bc);
       window.scrollTo({ top: target, behavior: 'smooth' });
     });
   });
+})();
+
+// ---- TIPS TABS ----
+(function(){
+  const tabs   = document.querySelectorAll('.tips-tab');
+  const panels = document.querySelectorAll('.tips-panel');
+
+  function switchTab(id) {
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === id));
+    panels.forEach(p => {
+      const on = p.id === 'tab-' + id;
+      p.classList.toggle('active', on);
+      if (on) animateMeters(p);
+    });
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
+
+  // Animate meter fills when visible
+  function animateMeters(panel) {
+    panel.querySelectorAll('.tip-meter-fill').forEach(fill => {
+      fill.style.width = fill.dataset.w + '%';
+    });
+  }
+
+  // IntersectionObserver to trigger meters on scroll into view
+  const mo = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const active = document.querySelector('.tips-panel.active');
+        if (active) animateMeters(active);
+        mo.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  const tipsSec = document.getElementById('tips');
+  if (tipsSec) mo.observe(tipsSec);
 })();
 
 // ---- GSAP HERO ----
